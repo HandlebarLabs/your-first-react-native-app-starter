@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, ScrollView } from 'react-native';
 
-import { Header } from '../components/UserDetails';
+import { Header, Actions } from '../components/UserDetails';
 import colors from '../config/colors';
 
 class Details extends Component {
@@ -11,6 +11,7 @@ class Details extends Component {
     return (
       <ScrollView style={{ backgroundColor: colors.background }}>
         <Header {...contact} />
+        <Actions {...contact} />
       </ScrollView>
     );
   }
