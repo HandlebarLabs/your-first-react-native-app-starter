@@ -3,6 +3,8 @@ import { StackNavigator } from 'react-navigation';
 import Contacts from '../screens/Contacts';
 import Details from '../screens/Details';
 
+import { capitalizeFirstLetter } from '../helpers/string';
+
 export const ContactsStack = StackNavigator({
   Contacts: {
     screen: Contacts,
@@ -13,7 +15,7 @@ export const ContactsStack = StackNavigator({
   Details: {
     screen: Details,
     navigationOptions: {
-      title: 'Details',
+      title: ({ state }) => `${capitalizeFirstLetter(state.params.name.first)} ${capitalizeFirstLetter(state.params.name.last)}`,
     },
   },
 });
