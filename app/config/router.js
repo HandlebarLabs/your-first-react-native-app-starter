@@ -1,6 +1,7 @@
 import React from 'react';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { Button } from 'react-native';
 
 import Contacts from '../screens/Contacts';
 import Details from '../screens/Details';
@@ -14,6 +15,9 @@ export const ContactsStack = StackNavigator({
     screen: Contacts,
     navigationOptions: {
       title: 'Contacts',
+      header: (props) => ({
+        left: <Button title="Open" onPress={() => props.navigate('DrawerOpen')} />
+      }),
     },
   },
   Details: {
@@ -29,6 +33,9 @@ export const NewContactStack = StackNavigator({
     screen: NewContact,
     navigationOptions: {
       title: 'New Contact',
+      header: (props) => ({
+        left: <Button title="Open" onPress={() => props.navigate('DrawerOpen')} />
+      }),
     },
   },
 });
@@ -38,6 +45,9 @@ export const MeStack = StackNavigator({
     screen: Me,
     navigationOptions: {
       title: 'Me',
+      header: (props) => ({
+        left: <Button title="Open" onPress={() => props.navigate('DrawerOpen')} />
+      }),
     },
   },
 });
