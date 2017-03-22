@@ -1,5 +1,5 @@
 import React from 'react';
-import { StackNavigator, TabNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Contacts from '../screens/Contacts';
@@ -71,3 +71,30 @@ export const Tabs = TabNavigator({
     }
   },
 });
+
+export const Drawer = DrawerNavigator({
+  Contact: {
+    screen: ContactsStack,
+    navigationOptions: {
+      drawer: {
+        label: 'Contacts',
+      }
+    }
+  },
+  NewContact: {
+    screen: NewContactStack,
+    navigationOptions: {
+      drawer: {
+        label: 'New Contact',
+      }
+    }
+  },
+  Me: {
+    screen: MeStack,
+    navigationOptions: {
+      drawer: {
+        label: 'Me',
+      }
+    }
+  },
+})
