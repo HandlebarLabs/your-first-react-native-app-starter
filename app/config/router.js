@@ -24,6 +24,24 @@ export const ContactsStack = StackNavigator({
   },
 });
 
+export const NewContactStack = StackNavigator({
+  NewContact: {
+    screen: NewContact,
+    navigationOptions: {
+      title: 'New Contact',
+    },
+  },
+});
+
+export const MeStack = StackNavigator({
+  Me: {
+    screen: Me,
+    navigationOptions: {
+      title: 'Me',
+    },
+  },
+});
+
 export const Tabs = TabNavigator({
   Contacts: {
     screen: ContactsStack,
@@ -35,7 +53,7 @@ export const Tabs = TabNavigator({
     }
   },
   NewContact: {
-    screen: NewContact,
+    screen: NewContactStack,
     navigationOptions: {
       tabBar: {
         label: 'New Contact',
@@ -44,7 +62,7 @@ export const Tabs = TabNavigator({
     }
   },
   Me: {
-    screen: Me,
+    screen: MeStack,
     navigationOptions: {
       tabBar: {
         label: 'Me',
