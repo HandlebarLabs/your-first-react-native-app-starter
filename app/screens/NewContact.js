@@ -31,18 +31,26 @@ class NewContact extends Component {
     this.setState(mod);
   }
 
-  handleSubmit = () => {
-    alert('Submit');
+  handleSubmit = (index, override = false) => {
+    if (index === fields.length - 1 || override) {
+      alert('Submit');
+    } else {
+      const nextField = fields[index + 1];
+      this[nextField.stateKey].focus();
+    }
   };
 
   render() {
     return (
       <KeyboardAwareScrollView style={{ backgroundColor: colors.background }}>
         {
-          fields.map((field) => (
+          fields.map((field, index) => (
             <TextInput
               key={field.stateKey}
               onChange={(text) => this.onInputChange(text, field.stateKey)}
+              returnKeyType={index === fields.length - 1 ? 'done' : 'next'}
+              onSubmitEditing={() => this.handleSubmit(index)}
+              ref={(input) => this[field.stateKey] = input}
               {...field}
             />
           ))
@@ -50,7 +58,7 @@ class NewContact extends Component {
         <View style={{ marginTop: 20 }}>
           <PrimaryButton
             label="Save"
-            onPress={() => this.handleSubmit()}
+            onPress={() => this.handleSubmit(0, true)}
           />
         </View>
       </KeyboardAwareScrollView>
