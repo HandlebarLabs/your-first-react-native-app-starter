@@ -22,12 +22,10 @@ const LeftDrawerButton = ({ navigate }) => {
 export const ContactsStack = StackNavigator({
   Contacts: {
     screen: Contacts,
-    navigationOptions: {
+    navigationOptions: ({ navigation }) => ({
       title: 'Contacts',
-      header: (props) => ({
-        left: <LeftDrawerButton {...props} />
-      }),
-    },
+      headerLeft: <LeftDrawerButton {...navigation} />
+    }),
   },
   Details: {
     screen: Details,
@@ -40,24 +38,20 @@ export const ContactsStack = StackNavigator({
 export const NewContactStack = StackNavigator({
   NewContact: {
     screen: NewContact,
-    navigationOptions: {
+    navigationOptions: ({ navigation }) => ({
       title: 'New Contact',
-      header: (props) => ({
-        left: <LeftDrawerButton {...props} />
-      }),
-    },
+      headerLeft: <LeftDrawerButton {...navigation} />
+    }),
   },
 });
 
 export const MeStack = StackNavigator({
   Me: {
     screen: Me,
-    navigationOptions: {
+    navigationOptions: ({ navigation }) => ({
       title: 'Me',
-      header: (props) => ({
-        left: <LeftDrawerButton {...props} />
-      }),
-    },
+      headerLeft: <LeftDrawerButton {...navigation} />
+    }),
   },
 });
 
@@ -89,25 +83,19 @@ export const Drawer = DrawerNavigator({
   Contact: {
     screen: ContactsStack,
     navigationOptions: {
-      drawer: {
-        label: 'Contacts',
-      }
+      drawerLabel: 'Contacts',
     }
   },
   NewContact: {
     screen: NewContactStack,
     navigationOptions: {
-      drawer: {
-        label: 'New Contact',
-      }
+      drawerLabel: 'New Contact',
     }
   },
   Me: {
     screen: MeStack,
     navigationOptions: {
-      drawer: {
-        label: 'Me',
-      }
+      drawerLabel: 'Me',
     }
   },
 })
