@@ -7,8 +7,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "react": "^16.0.0-alpha.4",
-    "react-native": "^0.43.0-rc.3",
+    "react": "^16.0.0-alpha.6",
+    "react-native": "^0.43.3",
     "react-native-vector-icons": "^4.0.0"
   },
   "devDependencies": {
